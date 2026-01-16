@@ -100,7 +100,7 @@ export const promocionalProductTemplate: Data = {
       {
         type: "ImageGallery",
         props: {
-          id: "promo-prod-gallery",
+          id: "product-main-image",
           images: [
             { url: "/images/products/product-1.jpg", alt: "Vista 1" },
             { url: "/images/products/product-2.jpg", alt: "Vista 2" },

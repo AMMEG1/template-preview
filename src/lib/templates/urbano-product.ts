@@ -1,35 +1,28 @@
 /**
  * Template: Urbano - Producto
- * MORFOLOGÍA RADICAL: Banner horizontal cinematográfico + texto bold enorme + minimal
- * Inspiración: Streetwear brands, Supreme, Off-White
+ * Estilo streetwear bold - imagen grande + texto minimal
+ * Inspiración: Supreme, Off-White, streetwear brands
  */
 
 import type { Data } from "@puckeditor/core";
 
 export const urbanoProductTemplate: Data = {
   content: [
-    // SIN PromoBar - entrada directa brutal
-    // DIFERENCIA RADICAL: Imagen como banner horizontal (cinematográfico)
+    // Sin PromoBar - entrada directa
+    // Galería de imágenes grande
     {
-      type: "ImageCarousel",
+      type: "Container",
       props: {
-        id: "urbano-prod-banner",
-        images: [
-          { url: "/images/products/product-1.jpg", alt: "Look 1" },
-          { url: "/images/products/product-2.jpg", alt: "Look 2" },
-        ],
-        autoplay: true,
-        autoplayInterval: 5000,
-        showArrows: false,
-        showDots: true,
-        aspectRatio: "ultrawide",
+        id: "urbano-prod-gallery",
+        maxWidth: "xl",
+        padding: "none",
       },
     },
     {
       type: "Spacer",
       props: { id: "urbano-prod-spacer-1", height: "medium" },
     },
-    // Info BOLD y centrada
+    // Info bold y centrada
     {
       type: "Container",
       props: {
@@ -42,38 +35,24 @@ export const urbanoProductTemplate: Data = {
       type: "Spacer",
       props: { id: "urbano-prod-spacer-2", height: "large" },
     },
-    {
-      type: "Spacer",
-      props: { id: "urbano-prod-spacer-2b", height: "large" },
-    },
-    // Segunda imagen full width
-    {
-      type: "ProductImage",
-      props: {
-        id: "urbano-prod-detail",
-        src: "/images/products/product-3.jpg",
-        alt: "Detail",
-        size: "full",
-      },
-    },
-    {
-      type: "Spacer",
-      props: { id: "urbano-prod-spacer-3", height: "large" },
-    },
-    // Relacionados edge-to-edge
+    // Relacionados
     {
       type: "Container",
       props: {
         id: "urbano-prod-related",
-        maxWidth: "full",
-        padding: "none",
+        maxWidth: "xl",
+        padding: "medium",
       },
+    },
+    {
+      type: "Spacer",
+      props: { id: "urbano-prod-spacer-3", height: "medium" },
     },
     {
       type: "Footer",
       props: {
         id: "urbano-prod-footer",
-        text: "URBANO",
+        text: "URBANO 2024",
         showSocial: false,
       },
     },
@@ -84,13 +63,32 @@ export const urbanoProductTemplate: Data = {
     } as Record<string, unknown>,
   },
   zones: {
-    // Info BOLD y minimal
+    // Galería con carrusel
+    "urbano-prod-gallery:content": [
+      {
+        type: "ImageCarousel",
+        props: {
+          id: "product-main-image",
+          images: [
+            { url: "/images/products/product-1.jpg", alt: "Look 1" },
+            { url: "/images/products/product-2.jpg", alt: "Look 2" },
+            { url: "/images/products/product-3.jpg", alt: "Look 3" },
+          ],
+          autoplay: true,
+          autoplayInterval: 4000,
+          showArrows: true,
+          showDots: true,
+          aspectRatio: "wide",
+        },
+      },
+    ],
+    // Info bold y minimal
     "urbano-prod-info:content": [
       {
         type: "Heading",
         props: {
           id: "product-title",
-          text: "PRODUCT",
+          text: "PRODUCT NAME",
           level: "h1",
           align: "center",
           style: "clean",
@@ -98,7 +96,7 @@ export const urbanoProductTemplate: Data = {
       },
       {
         type: "Spacer",
-        props: { id: "urbano-prod-spacer-title", height: "medium" },
+        props: { id: "urbano-prod-spacer-title", height: "small" },
       },
       {
         type: "Price",
@@ -106,29 +104,42 @@ export const urbanoProductTemplate: Data = {
           id: "product-price",
           amount: 15000,
           currency: "ARS",
-          showCompare: false,
+          showCompare: true,
+          compareAmount: 20000,
         },
       },
       {
         type: "Spacer",
-        props: { id: "urbano-prod-spacer-price", height: "large" },
+        props: { id: "urbano-prod-spacer-price", height: "medium" },
+      },
+      {
+        type: "Text",
+        props: {
+          id: "product-description",
+          content: "Streetwear premium. Edición limitada.",
+          align: "center",
+        },
+      },
+      {
+        type: "Spacer",
+        props: { id: "urbano-prod-spacer-desc", height: "medium" },
       },
       {
         type: "BuyButton",
         props: {
           id: "urbano-prod-buy",
-          text: "BUY",
+          text: "ADD TO CART",
           variant: "primary",
         },
       },
     ],
-    // Relacionados: edge-to-edge, sin gaps
+    // Relacionados
     "urbano-prod-related:content": [
       {
         type: "Heading",
         props: {
           id: "urbano-prod-related-title",
-          text: "MORE",
+          text: "COMPLETE THE LOOK",
           level: "h2",
           align: "center",
           style: "clean",
@@ -146,7 +157,7 @@ export const urbanoProductTemplate: Data = {
           columnsDesktop: 4,
           columnsTablet: 2,
           columnsMobile: 2,
-          gap: "none",
+          gap: "sm",
         },
       },
     ],
