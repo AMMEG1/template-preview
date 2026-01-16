@@ -1,0 +1,713 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   THEME SYSTEM - Variables globales del tema
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* Default theme variables (fallback to Tiendanube) */
+.theme-root {
+  --theme-primary: #2563EB;
+  --theme-secondary: #4B5563;
+  --theme-accent: #10B981;
+  --theme-background: #ffffff;
+  --theme-text: #1F2937;
+  --theme-muted: #6B7280;
+}
+
+/* Theme-aware components use these variables */
+.theme-button-primary {
+  background-color: var(--theme-primary);
+  color: white;
+}
+
+.theme-button-primary:hover {
+  filter: brightness(0.9);
+}
+
+.theme-button-secondary {
+  background-color: var(--theme-secondary);
+  color: white;
+}
+
+.theme-button-outline {
+  background-color: transparent;
+  border: 2px solid var(--theme-primary);
+  color: var(--theme-primary);
+}
+
+.theme-text-primary {
+  color: var(--theme-primary);
+}
+
+.theme-text-secondary {
+  color: var(--theme-secondary);
+}
+
+.theme-text-accent {
+  color: var(--theme-accent);
+}
+
+.theme-text-muted {
+  color: var(--theme-muted);
+}
+
+.theme-bg-primary {
+  background-color: var(--theme-primary);
+}
+
+.theme-bg-accent {
+  background-color: var(--theme-accent);
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   GLOBAL PRESET STYLES - Estilos por preset para toda la pagina
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* ZARA PRESET - Minimal / Luxury */
+[data-theme-preset="zara"] {
+  --theme-primary: #000000;
+  --theme-secondary: #666666;
+  --theme-accent: #000000;
+  --theme-background: #ffffff;
+  --theme-text: #111111;
+  --theme-muted: #888888;
+}
+
+[data-theme-preset="zara"] .hero-cta {
+  background: transparent;
+  border: 1px solid white;
+  color: white;
+  font-weight: 300;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+[data-theme-preset="zara"] .hero-cta:hover {
+  background: white;
+  color: black;
+}
+
+[data-theme-preset="zara"] .section-header-link {
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.75rem;
+  color: #666;
+}
+
+/* TEMU PRESET - Aggressive / Urgency */
+[data-theme-preset="temu"] {
+  --theme-primary: #FF6D00;
+  --theme-secondary: #DC2626;
+  --theme-accent: #FBBF24;
+  --theme-background: #FFFBF5;
+  --theme-text: #374151;
+  --theme-muted: #6B7280;
+}
+
+[data-theme-preset="temu"] .hero-cta {
+  background: linear-gradient(135deg, #FF6D00 0%, #FF8533 100%);
+  color: white;
+  font-weight: 700;
+  border-radius: 9999px;
+  box-shadow: 0 4px 14px rgba(255, 109, 0, 0.4);
+  animation: pulse-orange 2s infinite;
+}
+
+@keyframes pulse-orange {
+  0%, 100% { box-shadow: 0 4px 14px rgba(255, 109, 0, 0.4); }
+  50% { box-shadow: 0 4px 24px rgba(255, 109, 0, 0.6); }
+}
+
+[data-theme-preset="temu"] .section-header-link {
+  background: linear-gradient(135deg, #FF6D00 0%, #FF8533 100%);
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 0.75rem;
+}
+
+/* TIENDANUBE PRESET - Balanced / PYME / MÁXIMA PERSONALIZACIÓN */
+[data-theme-preset="tiendanube"] {
+  /* Colores base */
+  --theme-primary: #2563EB;
+  --theme-secondary: #4B5563;
+  --theme-accent: #10B981;
+  --theme-background: #ffffff;
+  --theme-text: #1F2937;
+  --theme-muted: #6B7280;
+
+  /* Espaciado y redondeo */
+  --theme-radius-sm: 0.25rem;
+  --theme-radius-md: 0.5rem;
+  --theme-radius-lg: 0.75rem;
+  --theme-radius-xl: 1rem;
+  --theme-radius-2xl: 1.5rem;
+
+  /* Sombras */
+  --theme-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --theme-shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --theme-shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+  --theme-shadow-colored: 0 8px 24px rgba(37, 99, 235, 0.15);
+
+  /* Transiciones */
+  --theme-transition: 200ms ease;
+  --theme-hover-lift: -4px;
+  --theme-hover-scale: 1.02;
+}
+
+[data-theme-preset="tiendanube"] .hero-cta {
+  background: var(--theme-primary);
+  color: white;
+  font-weight: 600;
+  border-radius: 0.5rem;
+}
+
+[data-theme-preset="tiendanube"] .section-header-link {
+  color: var(--theme-primary);
+  font-weight: 500;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   TIENDANUBE UTILITY CLASSES - Clases para personalización máxima
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* Container Styles */
+.tn-container-none { }
+.tn-container-subtle { background: rgba(249, 250, 251, 0.5); }
+.tn-container-card {
+  background: white;
+  padding: 1rem;
+  border-radius: var(--theme-radius-xl);
+  box-shadow: var(--theme-shadow-sm);
+}
+.tn-container-gradient {
+  background: linear-gradient(to bottom, rgb(249, 250, 251), white);
+  padding: 1rem;
+  border-radius: var(--theme-radius-xl);
+}
+
+/* Hover Effects */
+.tn-hover-none { }
+.tn-hover-lift {
+  transition: transform var(--theme-transition), box-shadow var(--theme-transition);
+}
+.tn-hover-lift:hover {
+  transform: translateY(var(--theme-hover-lift));
+  box-shadow: var(--theme-shadow-lg);
+}
+.tn-hover-scale {
+  transition: transform var(--theme-transition);
+}
+.tn-hover-scale:hover {
+  transform: scale(var(--theme-hover-scale));
+}
+.tn-hover-glow {
+  transition: box-shadow var(--theme-transition);
+}
+.tn-hover-glow:hover {
+  box-shadow: var(--theme-shadow-colored);
+}
+.tn-hover-border {
+  transition: border-color var(--theme-transition);
+  border: 1px solid transparent;
+}
+.tn-hover-border:hover {
+  border-color: var(--theme-primary);
+}
+
+/* Card Radius Classes */
+.tn-radius-none { border-radius: 0; }
+.tn-radius-sm { border-radius: var(--theme-radius-sm); }
+.tn-radius-md { border-radius: var(--theme-radius-md); }
+.tn-radius-lg { border-radius: var(--theme-radius-lg); }
+.tn-radius-xl { border-radius: var(--theme-radius-xl); }
+.tn-radius-2xl { border-radius: var(--theme-radius-2xl); }
+
+/* Card Shadow Classes */
+.tn-shadow-none { box-shadow: none; }
+.tn-shadow-sm { box-shadow: var(--theme-shadow-sm); }
+.tn-shadow-md { box-shadow: var(--theme-shadow-md); }
+.tn-shadow-lg { box-shadow: var(--theme-shadow-lg); }
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Fix Puck DropZone to work with CSS Grid in ProductGrid */
+.product-grid > * {
+  display: contents;
+}
+
+/* ProductGrid items should be direct grid children visually */
+.product-grid > * > * {
+  min-width: 0;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   PRESET STYLES - Estilos específicos para cada estilo de tienda
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* PRESET ZARA - Ultra Minimal / Luxury */
+.product-grid.preset-zara {
+  background: #ffffff;
+}
+
+.product-grid.preset-zara .product-card {
+  background: white;
+  box-shadow: none;
+  border: none;
+}
+
+.product-grid.preset-zara .product-card:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.product-grid.preset-zara .product-card img {
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.product-grid.preset-zara .product-card:hover img {
+  transform: scale(1.03);
+}
+
+/* PRESET TEMU - Aggressive / Dense / Urgency */
+.product-grid.preset-temu {
+  background: linear-gradient(180deg, #fff8f0 0%, #ffffff 100%);
+}
+
+.product-grid.preset-temu .product-card {
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  background: white;
+  transition: all 0.2s ease-out;
+}
+
+.product-grid.preset-temu .product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(255, 109, 0, 0.15);
+  border-color: #ff6d00;
+}
+
+/* PRESET TIENDANUBE - Balanced / PYME */
+.product-grid.preset-tiendanube .product-card {
+  transition: all 0.3s ease;
+}
+
+.product-grid.preset-tiendanube .product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   CAREY PRESET - Modern / Trust / Cyan Accent
+   ═══════════════════════════════════════════════════════════════════ */
+
+[data-theme-preset="carey"] {
+  --theme-primary: #0097aa;
+  --theme-secondary: #007a8a;
+  --theme-accent: #d4f769;
+  --theme-background: #fafafa;
+  --theme-text: #1a1a1a;
+  --theme-muted: #666666;
+}
+
+[data-theme-preset="carey"] .hero-cta {
+  background: #0097aa;
+  color: white;
+  font-weight: 600;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 151, 170, 0.3);
+  transition: all 0.2s ease;
+}
+
+[data-theme-preset="carey"] .hero-cta:hover {
+  background: #007a8a;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 151, 170, 0.4);
+}
+
+[data-theme-preset="carey"] .section-header-link {
+  color: #0097aa;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+[data-theme-preset="carey"] .section-header-link:hover {
+  color: #007a8a;
+  text-decoration: underline;
+}
+
+/* PRESET CAREY - ProductGrid styles */
+.product-grid.preset-carey {
+  background: #fafafa;
+  padding: 1rem;
+  border-radius: 16px;
+}
+
+.product-grid.preset-carey .product-card {
+  background: white;
+  border-radius: 16px;
+  border: 1px solid #eee;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.product-grid.preset-carey .product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 151, 170, 0.15);
+  border-color: #0097aa;
+}
+
+/* Carey badges use lime green */
+[data-theme-preset="carey"] .badge-promo {
+  background: #d4f769;
+  color: #1a1a1a;
+  font-weight: 700;
+}
+
+/* Carey special price color (magenta for deals) */
+[data-theme-preset="carey"] .price-special {
+  color: #d63384;
+}
+
+/* Carey marquee animation for promo bars */
+@keyframes carey-marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+[data-theme-preset="carey"] .promo-marquee {
+  animation: carey-marquee 30s linear infinite;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   TEXT ANIMATIONS - Hero and content animations
+   ═══════════════════════════════════════════════════════════════════ */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-2px); }
+  20%, 40%, 60%, 80% { transform: translateX(2px); }
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   ELEGANTE PRESET - Lifestyle / Femenino / Orgánico (Acero Blanco)
+   ═══════════════════════════════════════════════════════════════════ */
+
+[data-theme-preset="elegante"] {
+  --theme-primary: #7CB69D;
+  --theme-secondary: #B8A99A;
+  --theme-accent: #D4A574;
+  --theme-background: #FDF8F3;
+  --theme-text: #3D3D3D;
+  --theme-muted: #8B8B8B;
+}
+
+[data-theme-preset="elegante"] .hero-cta {
+  background: #7CB69D;
+  color: white;
+  font-weight: 500;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(124, 182, 157, 0.3);
+  transition: all 0.3s ease;
+}
+
+[data-theme-preset="elegante"] .hero-cta:hover {
+  background: #6AA08A;
+  transform: scale(1.02);
+}
+
+[data-theme-preset="elegante"] .section-header-link {
+  color: #7CB69D;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+}
+
+.product-grid.preset-elegante {
+  background: #FDF8F3;
+}
+
+.product-grid.preset-elegante .product-card {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+}
+
+.product-grid.preset-elegante .product-card:hover {
+  transform: scale(1.02);
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   URBANO PRESET - Oscuro / Edgy / Bold (Bershka)
+   ═══════════════════════════════════════════════════════════════════ */
+
+[data-theme-preset="urbano"] {
+  --theme-primary: #FFFFFF;
+  --theme-secondary: #888888;
+  --theme-accent: #FF0000;
+  --theme-background: #0A0A0A;
+  --theme-text: #FFFFFF;
+  --theme-muted: #666666;
+}
+
+[data-theme-preset="urbano"] .hero-cta {
+  background: white;
+  color: black;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  border-radius: 0;
+  transition: all 0.2s ease;
+}
+
+[data-theme-preset="urbano"] .hero-cta:hover {
+  background: #f0f0f0;
+}
+
+[data-theme-preset="urbano"] .section-header-link {
+  color: white;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.product-grid.preset-urbano {
+  background: #0A0A0A;
+}
+
+.product-grid.preset-urbano .product-card {
+  background: #111111;
+  border: 1px solid transparent;
+  transition: border-color 0.2s ease;
+}
+
+.product-grid.preset-urbano .product-card:hover {
+  border-color: white;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   PROMOCIONAL PRESET - Colorido / Urgente / Ofertas (Temu)
+   ═══════════════════════════════════════════════════════════════════ */
+
+[data-theme-preset="promocional"] {
+  --theme-primary: #FF4D00;
+  --theme-secondary: #DC2626;
+  --theme-accent: #FFD700;
+  --theme-background: #FFF8F0;
+  --theme-text: #1F1F1F;
+  --theme-muted: #666666;
+}
+
+[data-theme-preset="promocional"] .hero-cta {
+  background: linear-gradient(135deg, #FF4D00 0%, #FF6D00 100%);
+  color: white;
+  font-weight: 700;
+  border-radius: 9999px;
+  box-shadow: 0 4px 14px rgba(255, 77, 0, 0.4);
+  animation: pulse-promo 2s infinite;
+}
+
+@keyframes pulse-promo {
+  0%, 100% { box-shadow: 0 4px 14px rgba(255, 77, 0, 0.4); }
+  50% { box-shadow: 0 4px 24px rgba(255, 77, 0, 0.6); }
+}
+
+[data-theme-preset="promocional"] .section-header-link {
+  background: linear-gradient(135deg, #FF4D00 0%, #FF6D00 100%);
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-weight: 600;
+}
+
+.product-grid.preset-promocional {
+  background: linear-gradient(180deg, #fff4e6 0%, #ffffff 100%);
+  padding: 1rem;
+  border-radius: 16px;
+}
+
+.product-grid.preset-promocional .product-card {
+  background: white;
+  border: 1px solid #ffd6b3;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(255, 77, 0, 0.1);
+  transition: all 0.2s ease;
+}
+
+.product-grid.preset-promocional .product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(255, 77, 0, 0.2);
+  border-color: #FF4D00;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   MINIMALISTA PRESET - Editorial / Silencioso / Premium (Zara)
+   ═══════════════════════════════════════════════════════════════════ */
+
+[data-theme-preset="minimalista"] {
+  --theme-primary: #000000;
+  --theme-secondary: #666666;
+  --theme-accent: #000000;
+  --theme-background: #FFFFFF;
+  --theme-text: #111111;
+  --theme-muted: #888888;
+}
+
+[data-theme-preset="minimalista"] .hero-cta {
+  background: transparent;
+  color: white;
+  font-weight: 300;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  border: 1px solid white;
+  border-radius: 0;
+  transition: all 0.3s ease;
+}
+
+[data-theme-preset="minimalista"] .hero-cta:hover {
+  background: white;
+  color: black;
+}
+
+[data-theme-preset="minimalista"] .section-header-link {
+  color: #666;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-size: 0.75rem;
+}
+
+.product-grid.preset-minimalista {
+  background: white;
+  padding: 2rem 0;
+}
+
+.product-grid.preset-minimalista .product-card {
+  background: white;
+  box-shadow: none;
+  border: none;
+  overflow: hidden;
+}
+
+.product-grid.preset-minimalista .product-card img {
+  transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.product-grid.preset-minimalista .product-card:hover img {
+  transform: scale(1.05);
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   MODERNO PRESET - Tecnológico / Confiable / Cyan (Carey)
+   ═══════════════════════════════════════════════════════════════════ */
+
+[data-theme-preset="moderno"] {
+  --theme-primary: #0097AA;
+  --theme-secondary: #007A8A;
+  --theme-accent: #D4F769;
+  --theme-background: #FAFAFA;
+  --theme-text: #1A1A1A;
+  --theme-muted: #666666;
+}
+
+[data-theme-preset="moderno"] .hero-cta {
+  background: #0097AA;
+  color: white;
+  font-weight: 600;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 151, 170, 0.3);
+  transition: all 0.2s ease;
+}
+
+[data-theme-preset="moderno"] .hero-cta:hover {
+  background: #007A8A;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 151, 170, 0.4);
+}
+
+[data-theme-preset="moderno"] .section-header-link {
+  color: #0097AA;
+  font-weight: 600;
+}
+
+.product-grid.preset-moderno {
+  background: #FAFAFA;
+  padding: 1.5rem;
+  border-radius: 16px;
+}
+
+.product-grid.preset-moderno .product-card {
+  background: white;
+  border-radius: 16px;
+  border: 1px solid #eee;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease;
+}
+
+.product-grid.preset-moderno .product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 151, 170, 0.15);
+  border-color: #0097AA;
+}
+
+/* Moderno badges use lime green */
+[data-theme-preset="moderno"] .badge-promo {
+  background: #D4F769;
+  color: #1A1A1A;
+  font-weight: 700;
+}
