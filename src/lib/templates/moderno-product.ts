@@ -1,7 +1,7 @@
 /**
  * Template: Moderno - Producto
- * MORFOLOGÍA RADICAL: Strip horizontal de thumbnails pequeños + info técnica densa + Tabs + Accordion
- * Inspiración: Apple Store, tech products, gadgets
+ * Estilo tech premium con información técnica completa
+ * Inspiración: Apple Store, tech products, gadgets premium
  */
 
 import type { Data } from "@puckeditor/core";
@@ -19,11 +19,11 @@ export const modernoProductTemplate: Data = {
         icon: "truck",
       },
     },
-    // DIFERENCIA RADICAL: Strip horizontal de 4 thumbnails pequeños
+    // Galería de imágenes
     {
       type: "Container",
       props: {
-        id: "mod-prod-thumbs",
+        id: "mod-prod-gallery",
         maxWidth: "lg",
         padding: "medium",
       },
@@ -32,7 +32,7 @@ export const modernoProductTemplate: Data = {
       type: "Spacer",
       props: { id: "mod-prod-spacer-1", height: "small" },
     },
-    // Info técnica organizada
+    // Info del producto
     {
       type: "Container",
       props: {
@@ -45,20 +45,7 @@ export const modernoProductTemplate: Data = {
       type: "Spacer",
       props: { id: "mod-prod-spacer-2", height: "medium" },
     },
-    // Trust badges
-    {
-      type: "Container",
-      props: {
-        id: "mod-prod-trust",
-        maxWidth: "lg",
-        padding: "medium",
-      },
-    },
-    {
-      type: "Spacer",
-      props: { id: "mod-prod-spacer-3", height: "medium" },
-    },
-    // Tabs con especificaciones técnicas
+    // Tabs con especificaciones
     {
       type: "Container",
       props: {
@@ -69,9 +56,22 @@ export const modernoProductTemplate: Data = {
     },
     {
       type: "Spacer",
-      props: { id: "mod-prod-spacer-4", height: "medium" },
+      props: { id: "mod-prod-spacer-3", height: "small" },
     },
-    // Accordion FAQ
+    // Trust badges (después de tabs)
+    {
+      type: "Container",
+      props: {
+        id: "mod-prod-trust",
+        maxWidth: "lg",
+        padding: "medium",
+      },
+    },
+    {
+      type: "Spacer",
+      props: { id: "mod-prod-spacer-4", height: "small" },
+    },
+    // FAQ Accordion
     {
       type: "Container",
       props: {
@@ -89,7 +89,7 @@ export const modernoProductTemplate: Data = {
       type: "Container",
       props: {
         id: "mod-prod-related",
-        maxWidth: "xl",
+        maxWidth: "lg",
         padding: "medium",
       },
     },
@@ -101,7 +101,7 @@ export const modernoProductTemplate: Data = {
       type: "Footer",
       props: {
         id: "mod-prod-footer",
-        text: "© 2024 Moderno Tech | Pago seguro | Garantía oficial | Soporte técnico",
+        text: "© 2024 Moderno Tech | Pago seguro | Garantía oficial",
         showSocial: true,
       },
     },
@@ -112,12 +112,12 @@ export const modernoProductTemplate: Data = {
     } as Record<string, unknown>,
   },
   zones: {
-    // DIFERENCIA RADICAL: Gallery con thumbnails pequeños
-    "mod-prod-thumbs:content": [
+    // Galería con thumbnails
+    "mod-prod-gallery:content": [
       {
         type: "ImageGallery",
         props: {
-          id: "mod-prod-gallery",
+          id: "product-main-image",
           images: [
             { url: "/images/products/product-1.jpg", alt: "Vista frontal" },
             { url: "/images/products/product-2.jpg", alt: "Vista lateral" },
@@ -214,6 +214,33 @@ export const modernoProductTemplate: Data = {
         },
       },
     ],
+    // Tabs técnicos
+    "mod-prod-tabs:content": [
+      {
+        type: "ProductTabs",
+        props: {
+          id: "mod-prod-tabs-section",
+          tabs: [
+            {
+              label: "Descripción",
+              content:
+                "Producto de última generación con tecnología avanzada. Diseño premium y materiales de alta calidad para un rendimiento excepcional.",
+            },
+            {
+              label: "Especificaciones",
+              content:
+                "Modelo: PRO-2024\nConectividad: Bluetooth 5.0, WiFi 6\nBatería: 5000mAh\nPantalla: AMOLED 6.5\"\nProcesador: Octa-core 2.8GHz\nMemoria: 8GB RAM\nAlmacenamiento: 256GB",
+            },
+            {
+              label: "Reviews",
+              content:
+                "⭐⭐⭐⭐⭐ Excelente producto, superó mis expectativas.\n⭐⭐⭐⭐⭐ Calidad premium, lo recomiendo.\n⭐⭐⭐⭐ Muy bueno, envío rápido.",
+            },
+          ],
+          variant: "underline",
+        },
+      },
+    ],
     // Trust badges
     "mod-prod-trust:content": [
       {
@@ -224,47 +251,23 @@ export const modernoProductTemplate: Data = {
             {
               icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 00-10.026 0 1.106 1.106 0 00-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12" /></svg>`,
               title: "Envío Express",
-              description: "24-48hs",
+              description: "24-48hs a todo el país",
             },
             {
               icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" /></svg>`,
               title: "Garantía 2 Años",
-              description: "Oficial",
+              description: "Garantía oficial del fabricante",
             },
             {
               icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" /></svg>`,
-              title: "Devolución",
-              description: "30 días",
+              title: "Devolución Gratis",
+              description: "30 días sin preguntas",
             },
           ],
           columns: 3,
           variant: "compact",
           iconSize: "sm",
           alignment: "center",
-        },
-      },
-    ],
-    // Tabs técnicos
-    "mod-prod-tabs:content": [
-      {
-        type: "ProductTabs",
-        props: {
-          id: "mod-prod-tabs-section",
-          tabs: [
-            {
-              label: "Descripción",
-              content: "Producto de última generación con tecnología avanzada. Diseño premium y materiales de alta calidad.",
-            },
-            {
-              label: "Especificaciones",
-              content: "Modelo: PRO-2024\nConectividad: Bluetooth 5.0, WiFi 6\nBatería: 5000mAh\nPantalla: AMOLED 6.5\"\nProcesador: Octa-core 2.8GHz\nMemoria: 8GB RAM\nAlmacenamiento: 256GB",
-            },
-            {
-              label: "Reviews (342)",
-              content: "⭐⭐⭐⭐⭐ Excelente producto, superó mis expectativas.\n⭐⭐⭐⭐⭐ Calidad premium, lo recomiendo.\n⭐⭐⭐⭐ Muy bueno, envío rápido.",
-            },
-          ],
-          variant: "underline",
         },
       },
     ],
@@ -290,15 +293,18 @@ export const modernoProductTemplate: Data = {
           items: [
             {
               title: "¿Cómo funciona la garantía?",
-              content: "La garantía cubre defectos de fabricación por 2 años. Contacta soporte técnico para iniciar un reclamo.",
+              content:
+                "La garantía cubre defectos de fabricación por 2 años. Contacta soporte técnico para iniciar un reclamo.",
             },
             {
               title: "¿Cuánto tarda el envío?",
-              content: "Envío express 24-48hs. Envío estándar 3-5 días hábiles.",
+              content:
+                "Envío express 24-48hs. Envío estándar 3-5 días hábiles.",
             },
             {
               title: "¿Puedo devolver el producto?",
-              content: "Sí, 30 días de devolución sin preguntas. Reembolso en 5-7 días hábiles.",
+              content:
+                "Sí, 30 días de devolución sin preguntas. Reembolso en 5-7 días hábiles.",
             },
           ],
           allowMultiple: true,

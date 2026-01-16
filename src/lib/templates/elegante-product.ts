@@ -1,6 +1,6 @@
 /**
  * Template: Elegante - Producto
- * MORFOLOGÍA RADICAL: Imagen pequeña centrada como pieza de arte + tipografía elegante + mucho texto
+ * Estilo editorial sofisticado con galería de imágenes y tipografía elegante
  * Inspiración: Catálogos de joyería de lujo, editorial de moda
  */
 
@@ -8,68 +8,66 @@ import type { Data } from "@puckeditor/core";
 
 export const eleganteProductTemplate: Data = {
   content: [
-    // Sin PromoBar - entrada limpia y sofisticada
     {
-      type: "Spacer",
-      props: { id: "elegante-prod-spacer-top", height: "large" },
-    },
-    {
-      type: "Spacer",
-      props: { id: "elegante-prod-spacer-top-2", height: "large" },
-    },
-    // DIFERENCIA RADICAL: Imagen PEQUEÑA centrada como pieza de arte
-    {
-      type: "Container",
+      type: "PromoBar",
       props: {
-        id: "elegante-prod-image",
-        maxWidth: "sm",
-        padding: "none",
+        id: "elegante-prod-promo",
+        variant: "with-icon",
+        text: "Envío gratis en compras +$30.000 | 3 cuotas sin interés",
+        backgroundColor: "#7CB69D",
+        textColor: "#ffffff",
+        icon: "gift",
       },
     },
     {
       type: "Spacer",
-      props: { id: "elegante-prod-spacer-1", height: "large" },
+      props: { id: "elegante-prod-spacer-top", height: "medium" },
+    },
+    // Galería de imágenes prominente
+    {
+      type: "Container",
+      props: {
+        id: "elegante-prod-gallery",
+        maxWidth: "lg",
+        padding: "medium",
+      },
     },
     {
       type: "Spacer",
-      props: { id: "elegante-prod-spacer-1b", height: "large" },
+      props: { id: "elegante-prod-spacer-1", height: "medium" },
     },
-    // Info centrada, elegante
+    // Info del producto
     {
       type: "Container",
       props: {
         id: "elegante-prod-info",
-        maxWidth: "md",
-        padding: "large",
+        maxWidth: "lg",
+        padding: "medium",
       },
     },
     {
       type: "Spacer",
       props: { id: "elegante-prod-spacer-2", height: "large" },
     },
-    // Descripción larga como en un catálogo de lujo
+    // Accordion con detalles
     {
       type: "Container",
       props: {
-        id: "elegante-prod-story",
-        maxWidth: "sm",
-        padding: "large",
+        id: "elegante-prod-accordion",
+        maxWidth: "lg",
+        padding: "medium",
       },
     },
     {
       type: "Spacer",
       props: { id: "elegante-prod-spacer-3", height: "large" },
     },
-    {
-      type: "Spacer",
-      props: { id: "elegante-prod-spacer-3b", height: "large" },
-    },
-    // Accordion para detalles
+    // Productos relacionados
     {
       type: "Container",
       props: {
-        id: "elegante-prod-accordion",
-        maxWidth: "sm",
+        id: "elegante-prod-related",
+        maxWidth: "xl",
         padding: "medium",
       },
     },
@@ -78,28 +76,11 @@ export const eleganteProductTemplate: Data = {
       props: { id: "elegante-prod-spacer-4", height: "large" },
     },
     {
-      type: "Spacer",
-      props: { id: "elegante-prod-spacer-4b", height: "large" },
-    },
-    // Relacionados con mucho espacio
-    {
-      type: "Container",
-      props: {
-        id: "elegante-prod-related",
-        maxWidth: "lg",
-        padding: "large",
-      },
-    },
-    {
-      type: "Spacer",
-      props: { id: "elegante-prod-spacer-5", height: "large" },
-    },
-    {
       type: "Footer",
       props: {
         id: "elegante-prod-footer",
-        text: "ELEGANTE",
-        showSocial: false,
+        text: "© 2024 Elegante Store",
+        showSocial: true,
       },
     },
   ],
@@ -109,19 +90,26 @@ export const eleganteProductTemplate: Data = {
     } as Record<string, unknown>,
   },
   zones: {
-    // DIFERENCIA RADICAL: Imagen PEQUEÑA (thumbnail size) centrada
-    "elegante-prod-image:content": [
+    // Galería con thumbnails laterales
+    "elegante-prod-gallery:content": [
       {
-        type: "ProductImage",
+        type: "ImageGallery",
         props: {
           id: "product-main-image",
-          src: "/images/products/product-1.jpg",
-          alt: "Producto",
-          size: "small",
+          images: [
+            { url: "/images/products/product-1.jpg", alt: "Producto vista 1" },
+            { url: "/images/products/product-2.jpg", alt: "Producto vista 2" },
+            { url: "/images/products/product-3.jpg", alt: "Producto vista 3" },
+            { url: "/images/products/product-4.jpg", alt: "Producto vista 4" },
+          ],
+          variant: "thumbnails-left",
+          thumbnailSize: "md",
+          showZoom: true,
+          aspectRatio: "square",
         },
       },
     ],
-    // Info minimalista centrada
+    // Info elegante y balanceada
     "elegante-prod-info:content": [
       {
         type: "Heading",
@@ -129,13 +117,13 @@ export const eleganteProductTemplate: Data = {
           id: "product-title",
           text: "Nombre del Producto",
           level: "h1",
-          align: "center",
+          align: "left",
           style: "clean",
         },
       },
       {
         type: "Spacer",
-        props: { id: "elegante-prod-spacer-title", height: "medium" },
+        props: { id: "elegante-prod-spacer-title", height: "small" },
       },
       {
         type: "Price",
@@ -143,35 +131,37 @@ export const eleganteProductTemplate: Data = {
           id: "product-price",
           amount: 15000,
           currency: "ARS",
-          showCompare: false,
+          showCompare: true,
+          compareAmount: 20000,
         },
       },
       {
         type: "Spacer",
-        props: { id: "elegante-prod-spacer-price", height: "large" },
+        props: { id: "elegante-prod-spacer-price", height: "medium" },
       },
-      {
-        type: "BuyButton",
-        props: {
-          id: "elegante-prod-buy",
-          text: "Agregar",
-          variant: "outline",
-        },
-      },
-    ],
-    // Historia/descripción prominente como en catálogos de lujo
-    "elegante-prod-story:content": [
       {
         type: "Text",
         props: {
           id: "product-description",
           content:
-            "Una pieza única que representa la esencia del diseño contemporáneo. Cada detalle ha sido cuidadosamente pensado para crear una experiencia sensorial única. Materiales seleccionados de los mejores proveedores, acabados artesanales que garantizan exclusividad.",
-          align: "center",
+            "Una pieza única diseñada con materiales premium. Acabados artesanales que garantizan exclusividad y durabilidad.",
+          align: "left",
+        },
+      },
+      {
+        type: "Spacer",
+        props: { id: "elegante-prod-spacer-desc", height: "medium" },
+      },
+      {
+        type: "BuyButton",
+        props: {
+          id: "elegante-prod-buy",
+          text: "Agregar al Carrito",
+          variant: "outline",
         },
       },
     ],
-    // Accordion minimal
+    // Accordion con información adicional
     "elegante-prod-accordion:content": [
       {
         type: "AccordionSection",
@@ -180,15 +170,18 @@ export const eleganteProductTemplate: Data = {
           items: [
             {
               title: "Materiales",
-              content: "Materiales premium seleccionados. Acabados artesanales.",
+              content:
+                "Fabricado con materiales de primera calidad. Acabados artesanales que garantizan durabilidad y elegancia.",
             },
             {
               title: "Cuidado",
-              content: "Guardar en lugar seco. Evitar contacto con químicos.",
+              content:
+                "Recomendamos guardar en lugar seco. Evitar contacto con perfumes y productos químicos.",
             },
             {
               title: "Envío",
-              content: "Envío gratis. Entrega en 3-5 días hábiles.",
+              content:
+                "Envío gratis en compras mayores a $30.000. Entrega en 3-5 días hábiles.",
             },
           ],
           allowMultiple: false,
@@ -196,21 +189,22 @@ export const eleganteProductTemplate: Data = {
         },
       },
     ],
-    // Relacionados: pocos productos, mucho espacio
+    // Productos relacionados
     "elegante-prod-related:content": [
       {
-        type: "Heading",
+        type: "SectionHeader",
         props: {
-          id: "elegante-prod-related-title",
-          text: "Colección",
-          level: "h3",
-          align: "center",
-          style: "clean",
+          id: "elegante-prod-related-header",
+          variant: "with-link",
+          title: "También te gustará",
+          align: "left",
+          viewAllLink: "/catalogo",
+          viewAllText: "Ver colección",
         },
       },
       {
         type: "Spacer",
-        props: { id: "elegante-prod-spacer-related", height: "large" },
+        props: { id: "elegante-prod-spacer-related", height: "medium" },
       },
       {
         type: "ProductGrid",
@@ -219,8 +213,8 @@ export const eleganteProductTemplate: Data = {
           preset: "elegante",
           columnsDesktop: 3,
           columnsTablet: 3,
-          columnsMobile: 1,
-          gap: "xl",
+          columnsMobile: 2,
+          gap: "lg",
         },
       },
     ],

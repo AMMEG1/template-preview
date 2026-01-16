@@ -1,74 +1,63 @@
 /**
  * Template: Minimalista - Producto
- * MORFOLOGÍA RADICAL: Imagen DIMINUTA centrada + ENORME espacio blanco + casi nada de texto
- * Inspiración: Galería de arte, museos, Aesop, COS
+ * Estilo galería de arte funcional - limpio pero completo
+ * Inspiración: Aesop, COS, galerías de arte contemporáneo
  */
 
 import type { Data } from "@puckeditor/core";
 
 export const minimalistaProductTemplate: Data = {
   content: [
-    // SIN PromoBar - silencio total
+    // Sin PromoBar - entrada limpia
     {
       type: "Spacer",
-      props: { id: "min-prod-spacer-1", height: "large" },
+      props: { id: "min-prod-spacer-top", height: "large" },
     },
-    {
-      type: "Spacer",
-      props: { id: "min-prod-spacer-1b", height: "large" },
-    },
-    {
-      type: "Spacer",
-      props: { id: "min-prod-spacer-1c", height: "large" },
-    },
-    // DIFERENCIA RADICAL: Imagen MUY PEQUEÑA centrada como pieza de museo
+    // Imagen principal prominente
     {
       type: "Container",
       props: {
         id: "min-prod-image",
-        maxWidth: "xs",
-        padding: "none",
+        maxWidth: "md",
+        padding: "medium",
+      },
+    },
+    {
+      type: "Spacer",
+      props: { id: "min-prod-spacer-1", height: "medium" },
+    },
+    // Info minimal pero completa
+    {
+      type: "Container",
+      props: {
+        id: "min-prod-info",
+        maxWidth: "sm",
+        padding: "medium",
       },
     },
     {
       type: "Spacer",
       props: { id: "min-prod-spacer-2", height: "large" },
     },
-    {
-      type: "Spacer",
-      props: { id: "min-prod-spacer-2b", height: "large" },
-    },
-    // Info MÍNIMA centrada
+    // Galería stack con más imágenes
     {
       type: "Container",
       props: {
-        id: "min-prod-info",
-        maxWidth: "sm",
-        padding: "large",
+        id: "min-prod-gallery",
+        maxWidth: "md",
+        padding: "medium",
       },
     },
     {
       type: "Spacer",
       props: { id: "min-prod-spacer-3", height: "large" },
     },
-    {
-      type: "Spacer",
-      props: { id: "min-prod-spacer-3b", height: "large" },
-    },
-    {
-      type: "Spacer",
-      props: { id: "min-prod-spacer-3c", height: "large" },
-    },
-    {
-      type: "Spacer",
-      props: { id: "min-prod-spacer-3d", height: "large" },
-    },
-    // Footer mínimo
+    // Footer minimal
     {
       type: "Footer",
       props: {
         id: "min-prod-footer",
-        text: "—",
+        text: "MINIMALISTA",
         showSocial: false,
       },
     },
@@ -79,33 +68,33 @@ export const minimalistaProductTemplate: Data = {
     } as Record<string, unknown>,
   },
   zones: {
-    // DIFERENCIA RADICAL: Imagen DIMINUTA (xs container)
+    // Imagen principal - tamaño medium visible
     "min-prod-image:content": [
       {
         type: "ProductImage",
         props: {
           id: "product-main-image",
           src: "/images/products/product-1.jpg",
-          alt: "Product",
-          size: "small",
+          alt: "Producto",
+          size: "large",
         },
       },
     ],
-    // Info ULTRA MÍNIMA - solo nombre y precio
+    // Info centrada y minimal
     "min-prod-info:content": [
       {
         type: "Heading",
         props: {
           id: "product-title",
-          text: "Product",
-          level: "h2",
+          text: "Nombre del Producto",
+          level: "h1",
           align: "center",
           style: "clean",
         },
       },
       {
         type: "Spacer",
-        props: { id: "min-prod-spacer-title", height: "medium" },
+        props: { id: "min-prod-spacer-title", height: "small" },
       },
       {
         type: "Price",
@@ -118,17 +107,46 @@ export const minimalistaProductTemplate: Data = {
       },
       {
         type: "Spacer",
-        props: { id: "min-prod-spacer-price", height: "large" },
+        props: { id: "min-prod-spacer-price", height: "medium" },
+      },
+      {
+        type: "Text",
+        props: {
+          id: "product-description",
+          content: "Diseño contemporáneo. Materiales premium.",
+          align: "center",
+        },
+      },
+      {
+        type: "Spacer",
+        props: { id: "min-prod-spacer-desc", height: "medium" },
       },
       {
         type: "BuyButton",
         props: {
           id: "min-prod-buy",
-          text: "Add",
+          text: "Agregar",
           variant: "outline",
         },
       },
     ],
-    // SIN productos relacionados - espacio vacío intencional
+    // Galería stack vertical
+    "min-prod-gallery:content": [
+      {
+        type: "ImageGallery",
+        props: {
+          id: "min-prod-gallery-images",
+          images: [
+            { url: "/images/products/product-2.jpg", alt: "Vista 2" },
+            { url: "/images/products/product-3.jpg", alt: "Vista 3" },
+            { url: "/images/products/product-4.jpg", alt: "Vista 4" },
+          ],
+          variant: "stack",
+          thumbnailSize: "lg",
+          showZoom: false,
+          aspectRatio: "square",
+        },
+      },
+    ],
   },
 };
