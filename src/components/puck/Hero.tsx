@@ -103,9 +103,9 @@ export function Hero({
   videoLoop = true,
   videoMuted = true,
   ctaText = "Ver productos",
-  ctaLink = "#",
+  ctaLink = "/catalogo",
   secondaryCtaText = "Ofertas",
-  secondaryCtaLink = "#ofertas",
+  secondaryCtaLink = "/catalogo",
   badgeText = "OFERTA ESPECIAL",
   badgeType = "flash",
   badgeAnimation = "pulse",
@@ -245,8 +245,8 @@ export function Hero({
           textAlign === "left" ? "justify-start" : "",
           textAlign === "right" ? "justify-end" : ""
         )}>
-          {/* Primary Button - only show if link is valid */}
-          {ctaText && ctaLink && ctaLink !== "#" && (
+          {/* Primary Button */}
+          {ctaText && ctaLink && (
             <a
               href={ctaLink}
               className={cn("hero-cta inline-block px-8 py-3", heroStyles.button.primary)}
@@ -255,8 +255,8 @@ export function Hero({
             </a>
           )}
 
-          {/* Secondary Button - only show if link is valid */}
-          {showSecondaryButton && secondaryCtaText && secondaryCtaLink && secondaryCtaLink !== "#" && secondaryCtaLink !== "#ofertas" && (
+          {/* Secondary Button */}
+          {showSecondaryButton && secondaryCtaText && secondaryCtaLink && (
             <a
               href={secondaryCtaLink}
               className={cn("inline-block px-8 py-3", heroStyles.button.secondary)}

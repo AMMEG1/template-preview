@@ -289,7 +289,7 @@ export function ProductGrid({
   headerTitle = "Productos",
   headerSubtitle,
   showViewAll = false,
-  viewAllLink = "#",
+  viewAllLink = "/catalogo",
   puck,
   children,
 }: Props) {
@@ -423,7 +423,7 @@ export function ProductGrid({
                 </p>
               )}
             </div>
-            {showViewAll && viewAllLink && viewAllLink !== "#" && (
+            {showViewAll && viewAllLink && (
               <a
                 href={viewAllLink}
                 className={cn(
