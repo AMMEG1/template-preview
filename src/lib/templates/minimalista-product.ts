@@ -39,6 +39,19 @@ export const minimalistaProductTemplate: Data = {
       type: "Spacer",
       props: { id: "min-prod-spacer-2", height: "large" },
     },
+    // Detalles del producto
+    {
+      type: "Container",
+      props: {
+        id: "min-prod-details",
+        maxWidth: "sm",
+        padding: "medium",
+      },
+    },
+    {
+      type: "Spacer",
+      props: { id: "min-prod-spacer-3", height: "large" },
+    },
     // Galería stack con más imágenes
     {
       type: "Container",
@@ -50,7 +63,20 @@ export const minimalistaProductTemplate: Data = {
     },
     {
       type: "Spacer",
-      props: { id: "min-prod-spacer-3", height: "large" },
+      props: { id: "min-prod-spacer-4", height: "large" },
+    },
+    // Productos relacionados
+    {
+      type: "Container",
+      props: {
+        id: "min-prod-related",
+        maxWidth: "lg",
+        padding: "medium",
+      },
+    },
+    {
+      type: "Spacer",
+      props: { id: "min-prod-spacer-5", height: "large" },
     },
     // Footer minimal
     {
@@ -113,7 +139,7 @@ export const minimalistaProductTemplate: Data = {
         type: "Text",
         props: {
           id: "product-description",
-          content: "Diseño contemporáneo. Materiales premium.",
+          content: "Diseño contemporáneo. Materiales premium seleccionados con cuidado. Fabricación artesanal.",
           align: "center",
         },
       },
@@ -130,8 +156,47 @@ export const minimalistaProductTemplate: Data = {
         },
       },
     ],
-    // Galería stack vertical
+    // Detalles del producto
+    "min-prod-details:content": [
+      {
+        type: "Heading",
+        props: {
+          id: "min-prod-details-title",
+          text: "Detalles",
+          level: "h3",
+          align: "center",
+          style: "clean",
+        },
+      },
+      {
+        type: "Spacer",
+        props: { id: "min-prod-details-spacer", height: "small" },
+      },
+      {
+        type: "Text",
+        props: {
+          id: "min-prod-details-text",
+          content: "Composición: 100% algodón orgánico certificado. Tejido de punto suave al tacto. Corte regular con acabados refinados. Producido de manera ética y sostenible.",
+          align: "center",
+        },
+      },
+    ],
+    // Galería stack vertical con título
     "min-prod-gallery:content": [
+      {
+        type: "Heading",
+        props: {
+          id: "min-prod-gallery-title",
+          text: "Más Vistas",
+          level: "h3",
+          align: "center",
+          style: "clean",
+        },
+      },
+      {
+        type: "Spacer",
+        props: { id: "min-prod-gallery-spacer", height: "medium" },
+      },
       {
         type: "ImageGallery",
         props: {
@@ -145,6 +210,78 @@ export const minimalistaProductTemplate: Data = {
           thumbnailSize: "lg",
           showZoom: false,
           aspectRatio: "square",
+        },
+      },
+    ],
+    // Productos relacionados
+    "min-prod-related:content": [
+      {
+        type: "Heading",
+        props: {
+          id: "min-prod-related-title",
+          text: "También te puede gustar",
+          level: "h3",
+          align: "center",
+          style: "clean",
+        },
+      },
+      {
+        type: "Spacer",
+        props: { id: "min-prod-related-spacer", height: "medium" },
+      },
+      {
+        type: "ProductGrid",
+        props: {
+          id: "min-prod-grid",
+          preset: "minimalista",
+          columnsDesktop: 3,
+          columnsTablet: 2,
+          columnsMobile: 1,
+          gap: "xl",
+        },
+      },
+    ],
+    "min-prod-grid:products": [
+      {
+        type: "ProductCard",
+        props: {
+          id: "min-related-1",
+          image: "/images/products/product-2.jpg",
+          title: "Camiseta Esencial",
+          price: 12000,
+          currency: "ARS",
+          variant: "minimal",
+          productUrl: "/producto/2",
+          showWishlist: false,
+          imageAspect: "portrait",
+        },
+      },
+      {
+        type: "ProductCard",
+        props: {
+          id: "min-related-2",
+          image: "/images/products/product-3.jpg",
+          title: "Pantalón Fluido",
+          price: 25000,
+          currency: "ARS",
+          variant: "minimal",
+          productUrl: "/producto/3",
+          showWishlist: false,
+          imageAspect: "portrait",
+        },
+      },
+      {
+        type: "ProductCard",
+        props: {
+          id: "min-related-3",
+          image: "/images/products/product-4.jpg",
+          title: "Blazer Estructurado",
+          price: 45000,
+          currency: "ARS",
+          variant: "minimal",
+          productUrl: "/producto/4",
+          showWishlist: false,
+          imageAspect: "portrait",
         },
       },
     ],

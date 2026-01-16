@@ -14,10 +14,6 @@ export const minimalistaCatalogTemplate: Data = {
       props: { id: "min-cat-spacer-1", height: "large" },
     },
     {
-      type: "Spacer",
-      props: { id: "min-cat-spacer-1b", height: "large" },
-    },
-    {
       type: "Container",
       props: {
         id: "min-cat-main",
@@ -28,10 +24,6 @@ export const minimalistaCatalogTemplate: Data = {
     {
       type: "Spacer",
       props: { id: "min-cat-spacer-2", height: "large" },
-    },
-    {
-      type: "Spacer",
-      props: { id: "min-cat-spacer-2b", height: "large" },
     },
     {
       type: "Footer",
@@ -76,13 +68,13 @@ export const minimalistaCatalogTemplate: Data = {
         },
       },
     ],
-    // DIFERENCIA: Cards ultra minimalistas - sin título, solo imagen y precio
+    // Cards minimalistas con título ligero
     "min-cat-grid:products": DEMO_PRODUCTS.map((p) => ({
       type: "ProductCard",
       props: {
         id: `min-cat-card-${p.id}`,
         image: p.image,
-        title: "",
+        title: p.title,
         price: p.price,
         currency: p.currency,
         variant: "minimal",

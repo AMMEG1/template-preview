@@ -688,6 +688,10 @@ export const puckConfig: Config = {
             { label: "Contorno", value: "outline" },
           ],
         },
+        href: {
+          type: "text",
+          label: "Enlace (opcional, para CTAs)",
+        },
       },
       defaultProps: {
         text: "Agregar al carrito",

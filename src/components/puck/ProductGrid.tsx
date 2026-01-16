@@ -423,7 +423,7 @@ export function ProductGrid({
                 </p>
               )}
             </div>
-            {showViewAll && (
+            {showViewAll && viewAllLink && viewAllLink !== "#" && (
               <a
                 href={viewAllLink}
                 className={cn(

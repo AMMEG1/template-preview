@@ -169,42 +169,48 @@ export function CategoryCircles({
         gapClasses[gap],
         "justify-start md:justify-center"
       )}>
-        {categories.map((category) => (
-          <a
-            key={category.id}
-            href={category.link || "#"}
-            className="flex flex-col items-center flex-shrink-0 group"
-          >
-            <div
-              className={cn(
-                "overflow-hidden transition-all duration-200",
-                currentSizeClasses,
-                shapeClasses[shape],
-                styles.circle
-              )}
-            >
-              <Image
-                src={category.image}
-                alt={category.name}
-                width={128}
-                height={128}
-                className="w-full h-full object-cover"
-              />
-            </div>
+        {categories.map((category) => {
+          const hasValidLink = category.link && category.link !== "#";
+          const Wrapper = hasValidLink ? "a" : "div";
+          const wrapperProps = hasValidLink ? { href: category.link } : {};
 
-            {showTitle && titlePosition === "below" && (
-              <span
+          return (
+            <Wrapper
+              key={category.id}
+              {...wrapperProps}
+              className="flex flex-col items-center flex-shrink-0 group"
+            >
+              <div
                 className={cn(
-                  "mt-2 text-center whitespace-nowrap",
-                  textSizeClasses[size],
-                  styles.text
+                  "overflow-hidden transition-all duration-200",
+                  currentSizeClasses,
+                  shapeClasses[shape],
+                  styles.circle
                 )}
               >
-                {category.name}
-              </span>
-            )}
-          </a>
-        ))}
+                <Image
+                  src={category.image}
+                  alt={category.name}
+                  width={128}
+                  height={128}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+
+              {showTitle && titlePosition === "below" && (
+                <span
+                  className={cn(
+                    "mt-2 text-center whitespace-nowrap",
+                    textSizeClasses[size],
+                    styles.text
+                  )}
+                >
+                  {category.name}
+                </span>
+              )}
+            </Wrapper>
+          );
+        })}
       </div>
     </div>
   );

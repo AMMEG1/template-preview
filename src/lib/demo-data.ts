@@ -290,8 +290,6 @@ export const DEFAULT_CATALOG_TEMPLATE: Data = {
           variant: "with-count",
           title: "Todos los productos",
           align: "left",
-          viewAllText: "Filtrar",
-          viewAllLink: "#",
           itemCount: DEMO_PRODUCTS.length,
         },
       },

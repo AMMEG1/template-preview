@@ -75,7 +75,7 @@ export function MasonryGrid({
       <div className="absolute inset-0 flex items-end p-4">
         <h3 className="text-white font-semibold text-lg">{item.title}</h3>
       </div>
-      {item.href && (
+      {item.href && item.href !== "#" && (
         <a
           href={item.href}
           className="absolute inset-0"

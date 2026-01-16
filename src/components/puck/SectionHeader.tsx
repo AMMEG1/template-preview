@@ -52,12 +52,14 @@ export function SectionHeader({
   title = "Sección",
   subtitle,
   align = "left",
-  viewAllLink = "#",
+  viewAllLink,
   viewAllText = "Ver todo",
   itemCount = 0,
 }: Props) {
   const themePreset = useThemePreset();
-  const showLink = variant === "with-link" || variant === "with-count";
+  // Only show link if viewAllLink is provided and not "#"
+  const hasValidLink = viewAllLink && viewAllLink !== "#";
+  const showLink = (variant === "with-link" || variant === "with-count") && hasValidLink;
   const showCount = variant === "with-count";
 
   const titleStyle = presetTitleStyles[themePreset];

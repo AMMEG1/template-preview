@@ -4,7 +4,6 @@
  */
 
 import type { Data } from "@puckeditor/core";
-import { DEMO_PRODUCTS } from "../demo-data";
 
 export const urbanoCatalogTemplate: Data = {
   content: [
@@ -23,7 +22,7 @@ export const urbanoCatalogTemplate: Data = {
     },
     {
       type: "Spacer",
-      props: { id: "urbano-cat-spacer-2", height: "large" },
+      props: { id: "urbano-cat-spacer-2", height: "medium" },
     },
     {
       type: "Footer",
@@ -45,7 +44,7 @@ export const urbanoCatalogTemplate: Data = {
         type: "Heading",
         props: {
           id: "urbano-cat-title",
-          text: "PRODUCTS",
+          text: "ALL PRODUCTS",
           level: "h1",
           align: "center",
           style: "clean",
@@ -68,18 +67,127 @@ export const urbanoCatalogTemplate: Data = {
         },
       },
     ],
-    "urbano-cat-grid:products": DEMO_PRODUCTS.map((p) => ({
-      type: "ProductCard",
-      props: {
-        id: `urbano-cat-card-${p.id}`,
-        image: p.image,
-        title: p.title.toUpperCase(),
-        price: p.price,
-        currency: p.currency,
-        variant: "minimal",
-        productUrl: `/producto/${p.id}`,
-        showWishlist: false,
+    "urbano-cat-grid:products": [
+      {
+        type: "ProductCard",
+        props: {
+          id: "urbano-cat-card-1",
+          image: "/images/products/product-1.jpg",
+          title: "OVERSIZED HOODIE",
+          price: 45000,
+          currency: "ARS",
+          variant: "minimal",
+          productUrl: "/producto/1",
+          showWishlist: false,
+        },
       },
-    })),
+      {
+        type: "ProductCard",
+        props: {
+          id: "urbano-cat-card-2",
+          image: "/images/products/product-2.jpg",
+          title: "CARGO PANTS",
+          price: 52000,
+          currency: "ARS",
+          variant: "minimal",
+          productUrl: "/producto/2",
+          showWishlist: false,
+          badges: [{ text: "NEW", type: "new" }],
+        },
+      },
+      {
+        type: "ProductCard",
+        props: {
+          id: "urbano-cat-card-3",
+          image: "/images/products/product-3.jpg",
+          title: "PLATFORM SNEAKERS",
+          price: 68000,
+          currency: "ARS",
+          variant: "minimal",
+          productUrl: "/producto/3",
+          showWishlist: false,
+        },
+      },
+      {
+        type: "ProductCard",
+        props: {
+          id: "urbano-cat-card-4",
+          image: "/images/products/product-4.jpg",
+          title: "GRAPHIC TEE",
+          price: 28000,
+          currency: "ARS",
+          variant: "minimal",
+          productUrl: "/producto/4",
+          showWishlist: false,
+          badges: [{ text: "HOT", type: "hot" }],
+        },
+      },
+      {
+        type: "ProductCard",
+        props: {
+          id: "urbano-cat-card-5",
+          image: "/images/products/product-1.jpg",
+          title: "BOMBER JACKET",
+          price: 78000,
+          currency: "ARS",
+          variant: "minimal",
+          productUrl: "/producto/5",
+          showWishlist: false,
+        },
+      },
+      {
+        type: "ProductCard",
+        props: {
+          id: "urbano-cat-card-6",
+          image: "/images/products/product-2.jpg",
+          title: "WIDE LEG JEANS",
+          price: 48000,
+          currency: "ARS",
+          variant: "minimal",
+          productUrl: "/producto/6",
+          showWishlist: false,
+        },
+      },
+      {
+        type: "ProductCard",
+        props: {
+          id: "urbano-cat-card-7",
+          image: "/images/products/product-3.jpg",
+          title: "CHAIN NECKLACE",
+          price: 18000,
+          currency: "ARS",
+          variant: "minimal",
+          productUrl: "/producto/7",
+          showWishlist: false,
+        },
+      },
+      {
+        type: "ProductCard",
+        props: {
+          id: "urbano-cat-card-8",
+          image: "/images/products/product-4.jpg",
+          title: "BUCKET HAT",
+          price: 15000,
+          currency: "ARS",
+          variant: "minimal",
+          productUrl: "/producto/8",
+          showWishlist: false,
+          badges: [{ text: "LIMITED", type: "limited" }],
+        },
+      },
+      {
+        type: "ProductCard",
+        props: {
+          id: "urbano-cat-card-9",
+          image: "/images/products/product-1.jpg",
+          title: "CROSSBODY BAG",
+          price: 32000,
+          currency: "ARS",
+          variant: "minimal",
+          productUrl: "/producto/9",
+          showWishlist: false,
+        },
+      },
+    ],
   },
 };

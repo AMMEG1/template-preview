@@ -27,13 +27,26 @@ export const urbanoProductTemplate: Data = {
       type: "Container",
       props: {
         id: "urbano-prod-info",
-        maxWidth: "lg",
+        maxWidth: "md",
         padding: "large",
       },
     },
     {
       type: "Spacer",
-      props: { id: "urbano-prod-spacer-2", height: "large" },
+      props: { id: "urbano-prod-spacer-2", height: "medium" },
+    },
+    // Detalles del producto
+    {
+      type: "Container",
+      props: {
+        id: "urbano-prod-details",
+        maxWidth: "md",
+        padding: "medium",
+      },
+    },
+    {
+      type: "Spacer",
+      props: { id: "urbano-prod-spacer-3", height: "medium" },
     },
     // Relacionados
     {
@@ -46,7 +59,7 @@ export const urbanoProductTemplate: Data = {
     },
     {
       type: "Spacer",
-      props: { id: "urbano-prod-spacer-3", height: "medium" },
+      props: { id: "urbano-prod-spacer-4", height: "medium" },
     },
     {
       type: "Footer",
@@ -88,7 +101,7 @@ export const urbanoProductTemplate: Data = {
         type: "Heading",
         props: {
           id: "product-title",
-          text: "PRODUCT NAME",
+          text: "OVERSIZED HOODIE",
           level: "h1",
           align: "center",
           style: "clean",
@@ -99,13 +112,25 @@ export const urbanoProductTemplate: Data = {
         props: { id: "urbano-prod-spacer-title", height: "small" },
       },
       {
+        type: "Text",
+        props: {
+          id: "product-subtitle",
+          content: "DROP 001 — LIMITED EDITION",
+          align: "center",
+        },
+      },
+      {
+        type: "Spacer",
+        props: { id: "urbano-prod-spacer-subtitle", height: "medium" },
+      },
+      {
         type: "Price",
         props: {
           id: "product-price",
-          amount: 15000,
+          amount: 45000,
           currency: "ARS",
           showCompare: true,
-          compareAmount: 20000,
+          compareAmount: 55000,
         },
       },
       {
@@ -116,7 +141,7 @@ export const urbanoProductTemplate: Data = {
         type: "Text",
         props: {
           id: "product-description",
-          content: "Streetwear premium. Edición limitada.",
+          content: "Streetwear premium. Oversize fit. 100% algodón heavy weight. Bordado exclusivo en pecho y espalda.",
           align: "center",
         },
       },
@@ -130,6 +155,31 @@ export const urbanoProductTemplate: Data = {
           id: "urbano-prod-buy",
           text: "ADD TO CART",
           variant: "primary",
+        },
+      },
+    ],
+    // Detalles del producto
+    "urbano-prod-details:content": [
+      {
+        type: "Heading",
+        props: {
+          id: "urbano-prod-details-title",
+          text: "THE DETAILS",
+          level: "h3",
+          align: "center",
+          style: "clean",
+        },
+      },
+      {
+        type: "Spacer",
+        props: { id: "urbano-prod-details-spacer", height: "small" },
+      },
+      {
+        type: "Text",
+        props: {
+          id: "urbano-prod-details-text",
+          content: "Material: 100% Algodón Heavy Weight (400gsm)\nFit: Oversize / Boxy\nColor: Negro\nCuidado: Lavar al revés, agua fría",
+          align: "center",
         },
       },
     ],
@@ -161,6 +211,59 @@ export const urbanoProductTemplate: Data = {
         },
       },
     ],
-    "urbano-prod-grid:products": [],
+    "urbano-prod-grid:products": [
+      {
+        type: "ProductCard",
+        props: {
+          id: "urbano-related-1",
+          image: "/images/products/product-2.jpg",
+          title: "CARGO PANTS",
+          price: 52000,
+          currency: "ARS",
+          variant: "minimal",
+          productUrl: "/producto/2",
+          showWishlist: false,
+        },
+      },
+      {
+        type: "ProductCard",
+        props: {
+          id: "urbano-related-2",
+          image: "/images/products/product-3.jpg",
+          title: "PLATFORM SNEAKERS",
+          price: 68000,
+          currency: "ARS",
+          variant: "minimal",
+          productUrl: "/producto/3",
+          showWishlist: false,
+        },
+      },
+      {
+        type: "ProductCard",
+        props: {
+          id: "urbano-related-3",
+          image: "/images/products/product-4.jpg",
+          title: "CHAIN NECKLACE",
+          price: 18000,
+          currency: "ARS",
+          variant: "minimal",
+          productUrl: "/producto/4",
+          showWishlist: false,
+        },
+      },
+      {
+        type: "ProductCard",
+        props: {
+          id: "urbano-related-4",
+          image: "/images/products/product-1.jpg",
+          title: "BUCKET HAT",
+          price: 15000,
+          currency: "ARS",
+          variant: "minimal",
+          productUrl: "/producto/5",
+          showWishlist: false,
+        },
+      },
+    ],
   },
 };
