@@ -133,7 +133,7 @@ export function ProductCard({
   freeShippingThreshold = 50000,
   enableQuickView = false,
   showWishlist = false,
-  productUrl = "#",
+  productUrl = "/producto/1",
   borderRadius = "md",
   shadow = "sm",
   hoverEffect = "lift",
