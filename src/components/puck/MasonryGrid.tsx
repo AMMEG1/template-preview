@@ -116,7 +116,7 @@ export const MasonryGridConfig: ComponentConfig<MasonryGridProps> = {
       defaultItemProps: {
         imageUrl: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800",
         title: "Category",
-        href: "#",
+        href: "/catalogo",
         height: "md",
       },
     },
@@ -155,25 +155,25 @@ export const MasonryGridConfig: ComponentConfig<MasonryGridProps> = {
       {
         imageUrl: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800",
         title: "Accessories",
-        href: "#",
+        href: "/catalogo",
         height: "lg",
       },
       {
         imageUrl: "https://images.unsplash.com/photo-1472851294608-062f824d29cc?w=800",
         title: "Clothing",
-        href: "#",
+        href: "/catalogo",
         height: "md",
       },
       {
         imageUrl: "https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?w=800",
         title: "Shoes",
-        href: "#",
+        href: "/catalogo",
         height: "xl",
       },
       {
         imageUrl: "https://images.unsplash.com/photo-1560769629-975ec94e6a86?w=800",
         title: "Bags",
-        href: "#",
+        href: "/catalogo",
         height: "md",
       },
     ],
